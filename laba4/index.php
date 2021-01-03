@@ -14,22 +14,10 @@ foreach ($shenonСodes as $key => $value) {
     echo $key . ': ' . $value . PHP_EOL;
 }
 
-function decodeSymbol($table, $code, $index = 0) {
-    if (count($table) != 1) {
-        $divideTable = divideTable($table);
-        $left = $divideTable['0'];
-        $right = $divideTable['1'];
-        if ($code[$index] = '0') {
-            return decodeSymbol($left, $code, $index + 1);
-        } else {
-            return decodeSymbol($right, $code, $index + 1);
-        }
-    } else {
-        return array_pop($table)[0];
-    }
-}
 
+/****************** functions ******************/
 
+// Построение кодового дерева и кодирование символов
 function shenonGetCodes($table, $value = '', &$codes = []) {
     if (count($table) != 1) {
         $divideTable = divideTable($table);
@@ -76,26 +64,6 @@ function divideTable($table) {
     return $res;
 }
 
-function get_L($H, $n) {
-    return round(1 - ($H / $n), 2);
-}
-
-function getEntropy($averageAmountOfInformation) {
-    $entropySource = 0;
-    foreach ($averageAmountOfInformation as $item) {
-        $entropySource += $item * log($item, 2);
-    }
-    return round($entropySource * -1, 4);
-}
-
-function get_P($w, $m) {
-    $P = [];
-    foreach ($w as $key => $value) {
-        $P[$key] = $value / $m;
-    }
-    return $P;
-}
-
 function get_w($str) {
     $w = [];
     foreach (str_split($str) as $s) {
@@ -103,14 +71,3 @@ function get_w($str) {
     }
     return $w;
 }
-
-function get_N($str) {
-    $Ntmp = [];
-    foreach (str_split($str) as $s) {
-        ++$Ntmp[$s];
-    }
-    return count($Ntmp);
-}
-
-
-

@@ -23,7 +23,6 @@ $receiverEntropyBySymbol = getReceiverEntropy($channelMatrix, $averageAmountOfIn
 echo $characters * ($receiverEntropyBySymbol - $generalConditionalEntropy) . PHP_EOL;
 
 
-
 /****************** functions ******************/
 
 // Энтропия источника
