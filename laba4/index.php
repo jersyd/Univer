@@ -30,7 +30,6 @@ function shenonGetCodes($table, $value = '', &$codes = []) {
         $codes[$key] .= $value;
         unset($table[$key]);
     }
-
     return $codes;
 }
 
@@ -60,10 +59,10 @@ function divideTable($table) {
         if ($j >= $optimalIndex) $res['1'][$key] = $value;
         $j++;
     }
-
     return $res;
 }
 
+// Частота вхождений
 function get_w($str) {
     $w = [];
     foreach (str_split($str) as $s) {
