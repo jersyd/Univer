@@ -9,7 +9,10 @@ arsort($table); // Сортировка
 // Построение кодового дерева и кодирование символов
 $shenonСodes = shenonGetCodes($table);
 
+echo 'Шифруемая строка: ' . $str . PHP_EOL;
+
 // Выдача кодов символов
+
 foreach ($shenonСodes as $key => $value) {
     echo $key . ': ' . $value . PHP_EOL;
 }
